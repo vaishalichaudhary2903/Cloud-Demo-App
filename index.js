@@ -1,12 +1,8 @@
-//const createError = require('http-errors');
-//----------//
+
 const express = require('express');
 const path = require('path');
-//----------//
 const cors = require('cors');
 const bookRoute = require('./node-backend/routes/book.routes');
-//let Book = require('./node-backend/model/book')
-//----------//
 const app = express();
 
 // middleware
@@ -45,9 +41,9 @@ app.use((err, req, res, next) => {
   res.status(500).send(err.message);
 });
 
-const port = 3000;
-app.listen(port, () => {
-  console.log('🚀 server is running on port:' + port);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log('🚀 server is running on port:' + PORT);
 });
 
 // app.get('/', async (req, res, next) => {
