@@ -4,8 +4,7 @@
   "description": "Book library project on node js, express js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-     "start": "node index.js"
+    "start": "node index.js"
   },
   "author": "Vaishali Chaudhary",
   "license": "ISC",
