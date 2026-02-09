@@ -1,0 +1,21 @@
+<div id="bookModal" class="modal">
+  <div class="modal-content">
+    <h4><%= editingBook ? 'Edit Book' : 'Add Book' %></h4>
+
+    <form method="POST" action="/books">
+      <input type="hidden" name="id" value="<%= editingBook?.id || '' %>">
+
+      <div class="input-field">
+        <input name="title" value="<%= editingBook?.title || '' %>" required>
+        <label class="active">Title</label>
+      </div>
+
+      <div class="input-field">
+        <input name="author" value="<%= editingBook?.author || '' %>">
+        <label class="active">Author</label>
+      </div>
+
+      <button class="btn">Save</button>
+    </form>
+  </div>
+</div>

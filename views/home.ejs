@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Book List</title>
+
+  <!-- Materialize + Bootstrap Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    .pageHeader {
+      position: fixed;
+      top: 4.28rem;
+      width: 100%;
+      z-index: 10;
+      background: #fff;
+      padding: .5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 1px 1px 20px #ccc;
+    }
+    .card-title {
+      background: #009dff6e;
+      color: #fff;
+      padding: .5rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .action-btn {
+      background: #052c65;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+    .cardFooter {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container-fluid">
+  <!-- Header -->
+  <div class="pageHeader">
+    <h4 class="text-primary-emphasis">My Book List</h4>
+
+    <div class="d-flex">
+      <!-- Filter -->
+      <a class="dropdown-trigger" href="#" data-target="filterDropdown">
+        <button class="btn action-btn"><i class="bi bi-funnel-fill"></i></button>
+      </a>
+
+      <ul id="filterDropdown" class="dropdown-content">
+        <li><a href="/books?filter=all">All</a></li>
+        <li><a href="/books?filter=read">Read</a></li>
+        <li><a href="/books?filter=unread">Unread</a></li>
+      </ul>
+
+      <!-- Add -->
+      <a href="#bookModal" class="btn modal-trigger action-btn">
+        <i class="bi bi-plus-lg"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Books -->
+  <div class="row" style="margin-top:9rem;">
+    <% books.forEach(book => { %>
+      <%- include('partials/bookcard', { book }) %>
+    <% }) %>
+  </div>
+</div>
+
+<!-- Add/Edit Modal -->
+<%- include('partials/bookForm', { editingBook }) %>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/js/books.js"></script>
+</body>
+</html>
