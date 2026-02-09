@@ -1,27 +1,27 @@
-const sql = require("mssql");
-const config = {
-    user: 'sql-server-admin-dev',          // sql admin username
-    password: 'V@ishali@123',  // sql password
-    server: 'sql-server-cloud-app-dev.privatelink.database.windows.net',      // your-server.database.windows.net
-    database: 'sql-db-app-dev',
-    options: {
-        encrypt: true,                  // required for Azure SQL
-        trustServerCertificate: true,
-        enableArithAbort: true,
-    },
-    pool: {
-    max: 10,
-    min: 0,
-    idleTimeoutMillis: 30000
-  },
-  connectionTimeout: 30000,
-  requestTimeout: 30000
-};
+// const sql = require("mssql");
+// const config = {
+//     user: 'sql-server-admin-dev',          // sql admin username
+//     password: 'V@ishali@123',  // sql password
+//     server: 'sql-server-cloud-app-dev.privatelink.database.windows.net',      // your-server.database.windows.net
+//     database: 'sql-db-app-dev',
+//     options: {
+//         encrypt: true,                  // required for Azure SQL
+//         trustServerCertificate: true,
+//         enableArithAbort: true,
+//     },
+//     pool: {
+//     max: 10,
+//     min: 0,
+//     idleTimeoutMillis: 30000
+//   },
+//   connectionTimeout: 30000,
+//   requestTimeout: 30000
+// };
 
 // async function getPool() {
 //   return sql.connect(config);
 // }
-
+const { sql, config } = require('../../database/db')
 let pool;
 
 async function getPool() {
