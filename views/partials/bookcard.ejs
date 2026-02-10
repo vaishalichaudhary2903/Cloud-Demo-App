@@ -1,9 +1,9 @@
 <div class="col-md-3" style="margin-bottom:1.5rem">
   <div class="card">
-    <img src="<%= book.thumbnail %>" style="aspect-ratio:3/4;object-fit:cover">
+    <img src="<%= book.imageUrl %>" style="aspect-ratio:3/4;object-fit:cover">
 
     <div class="card-content p-0">
-      <h6 class="card-title" title="<%= book.title %>"><%= book.title %></h6>
+      <h6 class="card-title mt-0" title="<%= book.title %>"><%= book.title %></h6>
       <p><strong>Author:</strong> <%= book.author %></p>
       <p><strong>Genre:</strong> <%= book.genre %></p>
       <p><strong>Status:</strong> <%= book.readStatus ? 'Read' : 'Unread' %></p>
