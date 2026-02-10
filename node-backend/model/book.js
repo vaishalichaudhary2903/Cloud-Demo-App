@@ -59,9 +59,10 @@ module.exports = {
       .input('title', sql.NVarChar(255), book.title)
       .input('author', sql.NVarChar(255), book.author)
       .input('status', sql.NVarChar(50), book.status || 'unread')
+      .input('thumbnail', sql.NVarChar(255), book.thumbnail)
       .query(`
-        INSERT INTO Books (title, author, status)
-        VALUES (@title, @author, @status)
+        INSERT INTO Books (title, author, status, thumbnail)
+        VALUES (@title, @author, @status, @thumbnail)
       `);
   }
 };

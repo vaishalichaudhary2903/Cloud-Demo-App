@@ -4,6 +4,7 @@ const express = require('express');
 const bookRoute = express.Router();
 
 let Book = require('../model/book')
+const { generateReadSAS } = require('../../image');
 
 // bookRoute.get('/', (req, res) => {
 //   res.send('Books route working');
@@ -39,9 +40,13 @@ bookRoute.get('/', async (req, res, next) => {
     const filter = req.query.filter || 'all';
 
     const books = await Book.findAll(filter);
+     const booksWithImages = books.map(book => ({
+      ...book,
+      imageUrl: generateReadSAS(book.thumbnail)
+    }));
 
     res.render('home', {
-      books,
+      books: booksWithImages,
       editingBook: null
     });
   } catch (err) {
